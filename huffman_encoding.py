@@ -30,9 +30,9 @@ def make_file(content_bits, code_dict, output_path):
         file.write(total_bits.to_bytes(4, byteorder='little'))
 
         for symbol, code in code_dict.items():
-            file.write(bytes([symbol]))                # 1 byte
-            file.write(len(code).to_bytes(1, 'little')) # code length in bits
-            file.write(int(code, 2).to_bytes((len(code)+7)//8, 'big')) # code bits
+            file.write(bytes([symbol]))
+            file.write(len(code).to_bytes(1, 'little'))
+            file.write(int(code, 2).to_bytes((len(code)+7)//8, 'big'))
 
         file.write(b'\n\n\n')
 

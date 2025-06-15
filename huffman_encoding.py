@@ -1,4 +1,3 @@
-import json
 import sys
 
 def generate_codes(node, current_code):

@@ -16,6 +16,7 @@ def generate_codes(node, current_code):
 
 def make_file(content_bits, code_dict, output_path):
     total_bits = len(content_bits)
+    print(total_bits)
 
     pad_length = (8 - (total_bits % 8)) % 8
     padded_bitstring = content_bits + pad_length * '0'
@@ -40,10 +41,9 @@ def make_file(content_bits, code_dict, output_path):
 if __name__ == "__main__":
     args = sys.argv
     file_path = args[1]
-    file_type = file_path[file_path.find(".")+1:]
     output_path = args[2]
     
-    if file_type == "txt":
+    if ".txt" in file_path:
         with open(file_path, "r") as file:
             content = file.read()
     else:
@@ -90,4 +90,3 @@ if __name__ == "__main__":
         bit_out += code_dict[byte]
     
     make_file(bit_out, code_dict, output_path)
-    print(args)
